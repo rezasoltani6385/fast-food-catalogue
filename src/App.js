@@ -1,13 +1,8 @@
-import { useEffect } from 'react';
 import './App.css';
 import CategoryList from './CategoryList/categoryList';
 import Header from './Header/header';
 
 function App() {
-
-  useEffect(()=>{
-    
-  },[])
 
   return (
     <div className='wrapper bg-faded-dark'>
