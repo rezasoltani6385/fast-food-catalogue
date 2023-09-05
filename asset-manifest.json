@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fast-food-catalogue/static/css/main.35095e91.css",
+    "main.js": "/fast-food-catalogue/static/js/main.02c183ab.js",
+    "static/media/header-background.jpg": "/fast-food-catalogue/static/media/header-background.75e1292fc1693fc8838e.jpg",
+    "static/media/404.png": "/fast-food-catalogue/static/media/404.2144b2fb01ea7366114c.png",
+    "index.html": "/fast-food-catalogue/index.html",
+    "main.35095e91.css.map": "/fast-food-catalogue/static/css/main.35095e91.css.map",
+    "main.02c183ab.js.map": "/fast-food-catalogue/static/js/main.02c183ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35095e91.css",
+    "static/js/main.02c183ab.js"
+  ]
+}
