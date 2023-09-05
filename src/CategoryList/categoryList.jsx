@@ -1,21 +1,13 @@
 import React from "react"
-import { useEffect, useState } from "react"
-import axios from "../axios"
 import Loading from "../Loading/loading"
+import useAxios from "../Hooks/useAxios"
 
 const CategoryList = ({filterItems, children}) => {
-    const [loading, setLoading] = useState(true)
-    const [categories, setCategories] = useState([])
 
-    useEffect(()=>{
-        const fetchCtegories = async () => {
-            const response = await axios.get('/FoodCategory/categories')
-            setCategories(response.data)
-            setLoading(false)
-        }
-
-        fetchCtegories()
-    },[])
+    const [categories, , loading] = useAxios({
+        // method: 'GET', default method is get
+        url: '/FoodCategory/categories'
+    })
 
     const renderContent = () => {
         if (loading){
