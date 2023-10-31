@@ -1,7 +1,21 @@
 import './fastFoodItem.css'
 import {HiShoppingCart} from 'react-icons/hi'
+import {FaRegComments} from 'react-icons/fa6'
+import { useDispatch } from 'react-redux'
+import { addToCartAction } from '../Redux/action'
 
-const FastFoodItem = ({name, price, ingredients, imageUrl, delay}) => {
+const FastFoodItem = ({name, price, ingredients, imageUrl, delay, count}) => {
+    const dispatch = useDispatch()
+
+
+    function scrollToComments() {
+        const commentsElement = document.getElementById("comments");
+        if (commentsElement) {
+          commentsElement.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
+
     return (
         <div className="card product-card h-100 border-0 shadow-sm pb-1 fade-in-horiz"
             style={{animationDelay: `${delay}s`}}
@@ -17,10 +31,16 @@ const FastFoodItem = ({name, price, ingredients, imageUrl, delay}) => {
                 <div className="fs-ms fw-bold text-muted mb-3">
                     {ingredients}
                 </div>
-                <button className="btn btn-outline-success btn-sm w-100 mt-auto fw-bold">
-                    <HiShoppingCart className='fs-5 ms-3'/>
-                    افزودن به سبد خرید
-                </button>
+                <div className="flex">
+                    <div className="btn btn-outline-success btn-sm w-60 mt-auto fw-bold" role='button' onClick={()=> dispatch(addToCartAction({name: name, price: price, count: 1}))}>
+                        <HiShoppingCart className='fs-5 ms-3'/>
+                        افزودن به سبد خرید
+                    </div>
+                    <div className='btn' onClick={scrollToComments} role='button'>
+                        <sup className='text-success'>{count}</sup>
+                        <FaRegComments className='text-success fs-4'/>
+                    </div>
+                </div>
             </div>
         </div>
     )
