@@ -10,6 +10,7 @@ import useAxios from './Hooks/useAxios';
 import Comment from './comments/comment';
 import { Provider } from 'react-redux';
 import store from './Redux/store';
+import Cart from './Cart/cart';
 
 function App() {
   const [url, setUrl] = useState('/FastFood/list')
@@ -97,6 +98,7 @@ function App() {
         <Header></Header>
         <CategoryList filterItems={filterItems}>
           <SearchBar searchItems={searchItems}/>
+          <Cart/>
         </CategoryList>
         <div className='container mt-4'>
           {
