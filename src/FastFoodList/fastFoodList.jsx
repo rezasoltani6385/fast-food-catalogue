@@ -1,6 +1,6 @@
 import FastFoodItem from "../FastFoodItem/fastFoodItem"
 
-const FastFoodList = ({fastFoodItems}) => {
+const FastFoodList = ({fastFoodItems, count}) => {
     let delay = 0.1
     return (
         <div className="row">
@@ -8,7 +8,7 @@ const FastFoodList = ({fastFoodItems}) => {
                 delay += 0.030
                 return (
                     <div className="col-md-4 col-sm-6 mb-grid-gutter" key={fastFood.id}>
-                        <FastFoodItem {...fastFood} delay={delay} />
+                        <FastFoodItem {...fastFood} delay={delay} count={count} />
                     </div>
                 )
             })}
