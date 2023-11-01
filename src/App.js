@@ -88,7 +88,7 @@ function App() {
         </>
       )
     }
-    return <FastFoodList fastFoodItems={fastFoodItems} count={comments.length}/>
+    return <FastFoodList fastFoodItems={fastFoodItems} commentsCount={comments.length}/>
   }
 
 
