@@ -110,10 +110,10 @@ const Cart = () => {
 
   return (
     <div>
-        <div role='button' onClick={openModal}>
+        <button className='btn btn-borderless' onClick={openModal} disabled={cartCount === 0}>
             <sup className={`${cartCount !==0 ? 'text-warning' : 'text-muted'} fs-6`}>{cartCount}</sup>
             <AiOutlineShoppingCart className={`${cartCount !==0 ? 'text-success' : 'text-muted'} fs-2`}/>
-        </div>
+        </button>
         {show &&
             <div className="modal modal-backdrop" style={{ display: "block"}} onClick={handleBackdropClick}>
                 <div className="modal-dialog modal-dialog-centered" onClick={(e) => e.stopPropagation()}>

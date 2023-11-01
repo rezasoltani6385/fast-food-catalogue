@@ -3,7 +3,7 @@ import {HiShoppingCart} from 'react-icons/hi'
 import {FaRegComments} from 'react-icons/fa6'
 import {CiCirclePlus} from 'react-icons/ci'
 import {CiCircleMinus} from 'react-icons/ci'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addToCartAction } from '../Redux/action'
 import { useState } from 'react'
 
@@ -11,8 +11,9 @@ const FastFoodItem = ({name, price, ingredients, imageUrl, delay, commentsCount}
     const dispatch = useDispatch()
     const [orderCount, setOrderCount] = useState(1)
     const [orserSent, setOrderSent] = useState(false)
+   
 
-    function scrollToComments() {
+    const scrollToComments = ()=> {
         const commentsElement = document.getElementById("comments");
         if (commentsElement) {
           commentsElement.scrollIntoView({ behavior: "smooth" });
@@ -50,9 +51,7 @@ const FastFoodItem = ({name, price, ingredients, imageUrl, delay, commentsCount}
                             <CiCircleMinus className='text-warning'/>
                         </button>
                     </div>
-                    <div className="btn btn-outline-success btn-sm w-60 my-auto fw-bold" role='button'
-                        onClick={addtoCart}
-                    >
+                    <div className="btn btn-outline-success btn-sm w-60 my-auto fw-bold" role='button' onClick={addtoCart}>
                         <HiShoppingCart className='fs-5 ms-1'/>
                         افزودن به سبد خرید
                     </div>

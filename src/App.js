@@ -15,7 +15,7 @@ import Cart from './Cart/cart';
 function App() {
   const [url, setUrl] = useState('/FastFood/list')
   const [comments, setComments] = useState([])
-  const [loading2, setLoading] = useState(false)
+  const [loadingComments, setLoadingComments] = useState(false)
   const [lastElement, setLastElement] = useState(null)
   const [page, setPage] = useState(1)
 
@@ -25,7 +25,7 @@ function App() {
 
 
   const fetchData = async () => {
-    setLoading(true)
+    setLoadingComments(true)
     const response = await fetch(
       `https://react-mini-projects-api.classbon.com/Comments/${page}`
     )
@@ -35,7 +35,7 @@ function App() {
     data.length === 0
       ? setLastElement(null)
       : setComments((oladData)=> [...oladData, ...data])
-    setLoading(false)
+    setLoadingComments(false)
   }
 
   const observerRef = new IntersectionObserver(([entry])=>{
@@ -106,7 +106,7 @@ function App() {
           }
         </div>
         <hr />
-        <p id='comments' className='mx-5 my-0 p-0 fs-3'>نظرات</p>
+        <p id='comments' className={`${loadingComments ? 'd-none' : 'mx-5 my-0 p-0 fs-3'}`}>نظرات</p>
         <div className="row">
           <div className="col-12">
             {comments.map((comment) => (
@@ -114,11 +114,6 @@ function App() {
                 <Comment {...comment}/>
               </div>
             ))}
-            {  loading2 && (
-                <div className="d-flex justify-content-center">
-                  <div className="spinner-border"></div>
-                </div>
-            )}
           </div>
         </div>
       </div>

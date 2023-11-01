@@ -18,7 +18,6 @@ const cartReducer = (state= initialState, action)=> {
             const itemNameToRemove = action.payload.name;
             const { [itemNameToRemove]: itemToRemove, ...updatedCart } = state;
             state = updatedCart
-            console.log('state', updatedCart)
             return {
                 ...updatedCart,
             };
